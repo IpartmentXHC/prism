@@ -4,7 +4,7 @@ Prism is a Linux performance diagnostic tool for analysing thread dynamics in di
 
 # Quickstart
 
-This section illustrates how to start Prism on a single instance. For a distributed setup, refer to [docs/distributed.md](docs/distributed.md)
+This section illustrates how to start Prism on a single instance. For a distributed setup, refer to [deploy/prism-chart](deploy/prism-chart) to deploy with helm on a kubernetes cluster.
 
 <details>
 <summary>Run with Docker</summary>
@@ -153,6 +153,42 @@ Visit the analysis UI at `http://localhost:8501/`. The UI includes some template
 # Papers
 
 This tool is the result of research presented in the following papers:
+
+**Beyond Thread States: Diagnosing Performance Degradation with eBPF and Thread Dynamics:**
+
+```
+D. Landau, J. G. Barbosa and N. Saurabh, "Beyond Thread States: Diagnosing Performance Degradation with eBPF and Thread Dynamics," in 2026 IEEE International Parallel and Distributed Processing Symposium (IPDPS), New Orleans, LA, USA, 2026, pp. 819-834, doi: 10.1109/IPDPS65963.2026.00073.
+
+@INPROCEEDINGS {11575369,
+author = { Landau, Diogo and Barbosa, Jorge G. and Saurabh, Nishant },
+booktitle = { 2026 IEEE International Parallel and Distributed Processing Symposium (IPDPS) },
+title = {{ Beyond Thread States: Diagnosing Performance Degradation with eBPF and Thread Dynamics }},
+year = {2026},
+volume = {},
+ISSN = {},
+pages = {819-834},
+abstract = { Online Data-Intensive applications face performance degradation from load variability and resource interference. While Thread State Analysis (TSA) based approaches enable identifying constrained subsystems, they lack the granularity to reveal the inter-thread dependencies that propagate degradation. In this paper, we present an application-agnostic performance degradation analysis method that extends TSA by capturing fine-grained thread dynamics. We implemented 16 eBPF-based metrics across six kernel subsystems, including scheduling, VFS, networking, futex, multiplexing IO, and block IO which enables tracing thread interactions with specific resources like futexes, sockets, and disks. Our method leverages the fact that performance degradation propagates along inter-thread dependencies, and a subset of thread-resource interactions can enable capturing common degradation patterns. To this end, we employ a selective thread tracking algorithm that traces performance issues from entry-point threads to constrained resources. Experimentation with diverse applications under variable workloads and resource contention shows our method successfully diagnoses CPU, disk, lock, and external service contention with minimal overhead, while also revealing internal application constraints. },
+keywords = {Degradation;Measurement;Timing;Kernel;Printing;Conferences;Dynamics;Sockets;Central Processing Unit;Manuals},
+doi = {10.1109/IPDPS65963.2026.00073},
+url = {https://doi.ieeecomputersociety.org/10.1109/IPDPS65963.2026.00073},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+month =May}
+```
+
+```
+Landau, D., Barbosa, J., & Saurabh, N. (2026). Beyond Thread States: Diagnosing Performance Degradation with eBPF and Thread Dynamics. arXiv preprint arXiv:2605.25298.
+
+@misc{landau2026threadstatesdiagnosingperformance,
+      title={Beyond Thread States: Diagnosing Performance Degradation with eBPF and Thread Dynamics}, 
+      author={Diogo Landau and Jorge G. Barbosa and Nishant Saurabh},
+      year={2026},
+      eprint={2605.25298},
+      archivePrefix={arXiv},
+      primaryClass={cs.DC},
+      url={https://arxiv.org/abs/2605.25298}, 
+}
+```
 
 **eBPF-Based Instrumentation for Generalisable Diagnosis of Performance Degradation:**
 
